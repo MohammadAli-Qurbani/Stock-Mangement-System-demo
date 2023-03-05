@@ -1,0 +1,906 @@
+{
+    "info": {
+        "name": "stockMGS",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Category",
+            "item": [
+                {
+                    "name": "index",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/getCategories",
+                            "path": [
+                                "getCategories"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "User-Agent",
+                                "value": "Thunder Client (https://www.thunderclient.com)",
+                                "disabled": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "store",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/categories",
+                            "path": [
+                                "categories"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "User-Agent",
+                                "value": "Thunder Client (https://www.thunderclient.com)",
+                                "disabled": true
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "category_name",
+                                    "value": "thunder client3",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "image",
+                                    "src": "/home/ali/task/phar01/phar/public/upload/category/images/c7pGvXqrf3ykm52r.jpg",
+                                    "type": "file"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "update",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "{{baseUrl}}/categories/5",
+                            "path": [
+                                "categories",
+                                "5"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "User-Agent",
+                                "value": "Thunder Client (https://www.thunderclient.com)",
+                                "disabled": true
+                            }
+                        ],
+                        "body": {
+                            "mode": "urlencoded",
+                            "urlencoded": [
+                                {
+                                    "key": "category_name",
+                                    "value": "5laravle"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "delete",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{baseUrl}}/categories/7",
+                            "path": [
+                                "categories",
+                                "7"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "User-Agent",
+                                "value": "Thunder Client (https://www.thunderclient.com)",
+                                "disabled": true
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Supplier",
+            "item": [
+                {
+                    "name": "index",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/getSuppliers",
+                            "path": [
+                                "getSuppliers"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "store",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/suppliers",
+                            "path": [
+                                "suppliers"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "User-Agent",
+                                "value": "Thunder Client (https://www.thunderclient.com)",
+                                "disabled": true
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "company_name",
+                                    "value": "mycomponay",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "phone",
+                                    "value": "0721345678",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "fjsd@mail.com",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "city",
+                                    "value": "kabul",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "district",
+                                    "value": "sdfsdfsdfsd",
+                                    "type": "default"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "update",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "{{baseUrl}}/suppliers/5",
+                            "path": [
+                                "suppliers",
+                                "5"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "User-Agent",
+                                "value": "Thunder Client (https://www.thunderclient.com)",
+                                "disabled": true
+                            }
+                        ],
+                        "body": {
+                            "mode": "urlencoded",
+                            "urlencoded": [
+                                {
+                                    "key": "company_name",
+                                    "value": "mnk"
+                                },
+                                {
+                                    "key": "phone",
+                                    "value": "0784321234"
+                                },
+                                {
+                                    "key": "email",
+                                    "value": "mk@gmail.com"
+                                },
+                                {
+                                    "key": "city",
+                                    "value": "kabul"
+                                },
+                                {
+                                    "key": "district",
+                                    "value": "6th"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "delete",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "{{baseUrl}}/suppliers/2",
+                            "path": [
+                                "suppliers",
+                                "2"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "User-Agent",
+                                "value": "Thunder Client (https://www.thunderclient.com)",
+                                "disabled": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "show",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/suppliers/2",
+                            "path": [
+                                "suppliers",
+                                "2"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Goods",
+            "item": [
+                {
+                    "name": "index",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/getGoods",
+                            "path": [
+                                "getGoods"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "User-Agent",
+                                "value": "Thunder Client (https://www.thunderclient.com)",
+                                "disabled": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "store",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/goods",
+                            "path": [
+                                "goods"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "User-Agent",
+                                "value": "Thunder Client (https://www.thunderclient.com)",
+                                "disabled": true
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "supplier_id",
+                                    "value": "2",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "category_id",
+                                    "value": "3",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "drag_name",
+                                    "value": "thunder client",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": " made_date",
+                                    "value": "2022-01-01",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "expired_date",
+                                    "value": "2026-01-01",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "quantity",
+                                    "value": "4",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "description",
+                                    "value": "this is the description",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "rate",
+                                    "value": "40",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": " total_price",
+                                    "value": "160",
+                                    "type": "default"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "update",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/goods/13",
+                            "path": [
+                                "goods",
+                                "13"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "User-Agent",
+                                "value": "Thunder Client (https://www.thunderclient.com)",
+                                "disabled": true
+                            }
+                        ],
+                        "body": {
+                            "mode": "urlencoded",
+                            "urlencoded": [
+                                {
+                                    "key": "supplier_id",
+                                    "value": "3"
+                                },
+                                {
+                                    "key": " category_id",
+                                    "value": "2"
+                                },
+                                {
+                                    "key": "drag_name",
+                                    "value": "thunder client 3"
+                                },
+                                {
+                                    "key": " made_date",
+                                    "value": "2022-01-01"
+                                },
+                                {
+                                    "key": "expired_date",
+                                    "value": "2026-01-01"
+                                },
+                                {
+                                    "key": "quantity",
+                                    "value": "4"
+                                },
+                                {
+                                    "key": "description",
+                                    "value": "this is the description"
+                                },
+                                {
+                                    "key": "rate",
+                                    "value": "40"
+                                },
+                                {
+                                    "key": "total_price",
+                                    "value": "160"
+                                }
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "show",
+                    "request": {
+                        "method": "GET"
+                    }
+                },
+                {
+                    "name": "delete",
+                    "request": {
+                        "method": "GET"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "GoodsReport",
+            "item": []
+        },
+        {
+            "name": "Stock",
+            "item": [
+                {
+                    "name": "index",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/getStocks",
+                            "path": [
+                                "getStocks"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "show",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/stocks/11",
+                            "path": [
+                                "stocks",
+                                "11"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "index",
+                    "request": {
+                        "method": "GET"
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Sells",
+            "item": [
+                {
+                    "name": "index",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/getSells",
+                            "path": [
+                                "getSells"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "store",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "{{baseUrl}}/sells",
+                            "path": [
+                                "sells"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "User-Agent",
+                                "value": "Thunder Client (https://www.thunderclient.com)",
+                                "disabled": true
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "sells[0][stock_id]",
+                                    "value": "11",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "sells[0][quantity]",
+                                    "value": "2",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "sells[0][rate]",
+                                    "value": "68",
+                                    "type": "default"
+                                },
+                                {
+                                    "key": "sells[0][total_rate]",
+                                    "value": "136",
+                                    "type": "default"
+                                }
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "SellsReport",
+            "item": [
+                {
+                    "name": "monthly",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/reports/selles/charts",
+                            "path": [
+                                "reports",
+                                "selles",
+                                "charts"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "User-Agent",
+                                "value": "Thunder Client (https://www.thunderclient.com)",
+                                "disabled": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "yearly",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/reports/selles/charts/yearly",
+                            "path": [
+                                "reports",
+                                "selles",
+                                "charts",
+                                "yearly"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "User-Agent",
+                                "value": "Thunder Client (https://www.thunderclient.com)",
+                                "disabled": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "daily",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/report/selles/daily",
+                            "path": [
+                                "report",
+                                "selles",
+                                "daily"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "User-Agent",
+                                "value": "Thunder Client (https://www.thunderclient.com)",
+                                "disabled": true
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Expirations",
+            "item": [
+                {
+                    "name": "toDay",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/expiringToDay",
+                            "path": [
+                                "expiringToDay"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "nextMonth",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/expireAfterOnMonth",
+                            "path": [
+                                "expireAfterOnMonth"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "nextYear",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/expiring/next/year",
+                            "path": [
+                                "expiring",
+                                "next",
+                                "year"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "index",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/expirations",
+                            "path": [
+                                "expirations"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "User-Agent",
+                                "value": "Thunder Client (https://www.thunderclient.com)",
+                                "disabled": true
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Incomes",
+            "item": [
+                {
+                    "name": "daily",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/dailyIncome",
+                            "path": [
+                                "dailyIncome"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "User-Agent",
+                                "value": "Thunder Client (https://www.thunderclient.com)",
+                                "disabled": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "monthly",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/monthlyIncome",
+                            "path": [
+                                "monthlyIncome"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "name": "yearly",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/yearlyIncome",
+                            "path": [
+                                "yearlyIncome"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Returns",
+            "item": [
+                {
+                    "name": "index",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/getReturneds",
+                            "path": [
+                                "getReturneds"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "User-Agent",
+                                "value": "Thunder Client (https://www.thunderclient.com)",
+                                "disabled": true
+                            }
+                        ]
+                    }
+                },
+                {
+                    "name": "goods",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "{{baseUrl}}/returneds/good",
+                            "path": [
+                                "returneds",
+                                "good"
+                            ],
+                            "host": [
+                                "{{baseurl}}"
+                            ]
+                        },
+                        "header": [
+                            {
+                                "key": "Accept",
+                                "value": "application/json"
+                            },
+                            {
+                                "key": "User-Agent",
+                                "value": "Thunder Client (https://www.thunderclient.com)",
+                                "disabled": true
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
