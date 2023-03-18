@@ -20,8 +20,8 @@ class SellController extends Controller
        return view('sell.index');
     }
 
-    public function getSells(){
-        $sells=(new SellServices())->index();
+    public function getSells(Request $request){
+        $sells=(new SellServices())->index($request->searchPram);
         return SellResource::collection($sells);
     }
 

@@ -20,7 +20,7 @@ class SellResource extends JsonResource
             "rate"=>$this->rate,
             "quantity"=>$this->quantity,
             "total_rate"=>$this->total_rate,
-            "date"=>$this->created_at->format('Y/m/d'),
+            "date"=>$this->created_at->format('Y-m-d'),
             "exact_date"=>$this->created_at->diffForHumans(),
             "stock"=>new StockResource($this->whenLoaded('stock'))
         ];

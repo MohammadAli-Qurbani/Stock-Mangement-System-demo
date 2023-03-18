@@ -7,9 +7,17 @@ use App\Models\Stock;
 
 class SellServices
 {
-    public function index()
+    public function index(string $searchPram=null)
     {
-        return Sell::with('stock')->latest('id')->get();
+        return Sell::when($searchPram,function($sell)use($searchPram){
+            $sell->where(function($query)use($searchPram){
+                $query->whereDate('created_at','like',"%{$searchPram}%")
+                ->orWhereHas('stock',function($stock)use($searchPram){
+                    $stock->where('drag_name','like',"%{$searchPram}%");
+                });
+            });
+        })
+        ->with('stock')->latest('id')->get();
     }
 
     public function store(array $data)

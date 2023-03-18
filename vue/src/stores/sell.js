@@ -7,8 +7,8 @@ export const useSellStore=defineStore("sellStore",{
             errors:[]
         }
     },actions:{
-        async getSells(){
-            await axiosClient.get(`/getSells`)
+        async getSells(searchPram=''){
+            await axiosClient.get(`/getSells/?searchPram=${searchPram}`)
             .then((response)=>{
                 if(response.status===200){
                     this.sells=response.data.data

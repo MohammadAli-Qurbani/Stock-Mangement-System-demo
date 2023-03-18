@@ -7,9 +7,9 @@
             <div class="card-body">
               <div class="card-header d-flex justify-content-between">
                 <h3 >Sold Drags</h3>
-                <input v-if="Object.keys(sellStore.sells).length"
+                <input
                   type="text"
-                  class="mt-2 rounded border-0.4"
+                  v-model="searchSoldGrag"
                   placeholder="search darg name"
                 />
               </div>
@@ -53,6 +53,12 @@
 <script setup>
 import NotFound from "../../components/pageNotFound/NotFound.vue";
 import { useSellStore } from "../../stores/sell";
+import {watch,ref } from 'vue'
+import { debounce } from 'lodash'
 const sellStore = useSellStore();
 sellStore.getSells();
+const searchSoldGrag=ref(null)
+watch(searchSoldGrag,debounce(()=>{
+    sellStore.getSells(searchSoldGrag.value);
+},300))
 </script>
