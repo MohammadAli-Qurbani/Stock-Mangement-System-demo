@@ -24,15 +24,16 @@ class CategoryServices
         return Category::create($data);
     }
 
-    public function update(array $data, object $category): bool
+    public function update(array $data, object $category)
     {
-        if ( array_key_exists('image',$data) && $data['image'] !== null) {
+        if (array_key_exists('image',$data)) {
             $imagePath =  (new UploadHelper($data['image'], 'upload/category/images'))
                 ->imageUploadHelper();
             $data['image'] = $imagePath;
             unlink($category->image);
         }
         return $category->update($data);
+
     }
 
     public function delete(object $category)

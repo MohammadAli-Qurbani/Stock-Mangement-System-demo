@@ -80,8 +80,13 @@ class CategoryController extends Controller
     {
 
         $data=$request->validated();
-        // return $data['image'];
+        // return $data;
+        // return $data;
+        if($data['image']===null){
+            unset($data['image']);
+        }
         (new CategoryServices())->update($data,$category);
+        // return $data['image'];
     }
 
     /**

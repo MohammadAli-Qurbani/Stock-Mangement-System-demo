@@ -41,7 +41,7 @@
                                 id="category_name" class="form-control mb-2">
                             <label for="">image</label>
                             <input type="file" @change="selectedImage" id="image" class="form-control mb-2">
-                            <button class="btn btn-sm btn-primary mb-2">add new category</button>
+                            <button class="btn btn-sm btn-primary mb-2">update category</button>
                             <img :src="image ?? categoryStore.category.image"
                                 v-if="categoryStore.category.image !== null" alt="" class="h400">
 
@@ -114,7 +114,7 @@ const closeModal = (type) => {
     }
     image.value = null
 }
-let image = ref(null)
+let image = ref('')
 const selectedImageCategory = ref('');
 const selectedImage = (event) => {
     let file = event.target.files[0]
@@ -135,6 +135,7 @@ const addCategory = async () => {
     if (categoryStore.errors.length === 0) {
         show.value = false
         swal("", "new category added successfuly", "success")
+        categoryStore.getCategories()
     }
 }
 
@@ -152,15 +153,16 @@ const updateCategory = async (category) => {
     formData.append("image", selectedImageCategory.value)
     await categoryStore.update(category, formData)
     if (categoryStore.errors.length === 0) {
-        await categoryStore.getCategories()
         closeModal("edit")
         swal("", "update category done successfuly", "success")
+        await categoryStore.getCategories()
     }
 }
 const deleteCategory=async(category)=>{
     await categoryStore.delete(category)
     if(categoryStore.errors.length===0){
         swal("", "delete category done successfuly", "warning")
+        await categoryStore.getCategories()
     }
 }
 
