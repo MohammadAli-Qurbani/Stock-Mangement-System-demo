@@ -186,7 +186,7 @@
                             <p class="text-danger mb-1" v-if="goodStore.errors.description">
                                 {{ goodStore.errors.description[0] }}
                             </p>
-                            <button class="btn btn-primary" type="submit">save drag info</button>
+                            <button class="btn btn-primary" type="submit">update drag info</button>
                         </form>
                         <h1 v-else>
                             loading suppliers ...
@@ -203,8 +203,8 @@
                     <div class="card shadow">
                         <div class="card-body" v-if="Object.keys(goodStore.goods).length">
                             <div class="d-flex justify-content-between p-2">
-                                <h3 class="float-left">Goods</h3>
-                                <input type="text" placeholder="search">
+                                <h3 >Goods</h3>
+                                <input type="text" placeholder="search" v-model="searchGood">
                             </div>
                             <!-- Default Table -->
                             <table class="table">
