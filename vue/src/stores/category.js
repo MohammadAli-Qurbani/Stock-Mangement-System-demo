@@ -58,7 +58,7 @@ export const useCategorStore = defineStore("categoryStore", {
                 console.log(response);
             })
             .catch((error)=>{
-                this.errors=error.response.data.errors
+                this.errors=error.response.data
             })
         }
     }

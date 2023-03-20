@@ -40,7 +40,7 @@ class CategoryServices
     {
         $good = Good::whereIn('category_id', [$category->id])->first();
         if ($good !== null) {
-            return response("you can't this good category", Response::HTTP_FORBIDDEN);
+            return response("you can't delete this good category ", Response::HTTP_FORBIDDEN);
         }
 
         return $category->delete();

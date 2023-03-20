@@ -8,45 +8,60 @@
         <section class="section">
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="card" >
+                    <div class="card">
                         <div class="card-body">
+
                             <div class="d-flex justify-content-between p-2">
                                 <h3 class="float-left">Goods</h3>
                                 <input type="text" class="rounded" placeholder="search" v-model="searchGood">
                             </div>
                             <!-- Default Table -->
                             <div class="row" v-if="Object.keys(reeturnedStore.goods).length">
-                                <div :class="[returnList.length?'col-md-9':'col-md-12']">
+                                <div :class="[returnList.length ? 'col-md-9' : 'col-md-12']">
                                     <!-- {{ reeturnedStore.goods }} -->
+                                    <table>
+                                        <tr>
+                                            <td>id <input type="checkbox" v-model="tableColumns[0].id"  :checked="tableColumns[0].id" class="m-2" id=""></td>
+                                            <td>item <input type="checkbox" v-model="tableColumns[0].item"  :checked="tableColumns[0].item"  class="m-2" id=""></td>
+                                            <td>qty <input type="checkbox" v-model="tableColumns[0].qty"  :checked="tableColumns[0].qty"   class="m-2" id=""></td>
+                                            <td>date <input type="checkbox" v-model="tableColumns[0].date"  :checked="tableColumns[0].date"  class="m-2" id=""></td>
+                                            <td>rate <input type="checkbox" v-model="tableColumns[0].rate"  :checked="tableColumns[0].rate"   class="m-2" id=""></td>
+                                            <td>price <input type="checkbox" v-model="tableColumns[0].price"  :checked="tableColumns[0].price" class="m-2" id=""></td>
+                                            <td>category <input type="checkbox" v-model="tableColumns[0].category"  :checked="tableColumns[0].category"   class="m-2" id=""> </td>
+                                            <td>md <input type="checkbox" v-model="tableColumns[0].md"  :checked="tableColumns[0].md" class="m-2" id=""></td>
+                                            <td>ex <input type="checkbox" v-model="tableColumns[0].ex"  :checked="tableColumns[0].ex" class="m-2" id=""></td>
+                                            <td>boughtDate <input type="checkbox" v-model="tableColumns[0].boughtDate"  :checked="tableColumns[0].boughtDate" class="m-2" id=""></td>
+                                        </tr>
+                                    </table>
                                     <table class="table">
                                         <thead>
                                             <tr>
-                                                <td scope="col">#</td>
-                                                <td scope="col">item</td>
-                                                <td scope="col">qty</td>
-                                                <td scope="col">date</td>
-                                                <td scope="col">rate</td>
-                                                <td scope="col"> price</td>
-                                                <td scope="col">category</td>
+                                                <td scope="col" v-show="tableColumns[0].id">#</td>
+                                                <td scope="col" v-show="tableColumns[0].item">item</td>
+                                                <td scope="col" v-show="tableColumns[0].qty">qty</td>
+                                                <td scope="col" v-show="tableColumns[0].date">date</td>
+                                                <td scope="col" v-show="tableColumns[0].rate">rate</td>
+                                                <td scope="col" v-show="tableColumns[0].price"> price</td>
+                                                <td scope="col" v-show="tableColumns[0].category">category</td>
 
-                                                <td scope="">md</td>
-                                                <td scope="">ex</td>
-                                                <td scope="">boughtDate</td>
+                                                <td scope="" v-show="tableColumns[0].md">md</td>
+                                                <td scope="" v-show="tableColumns[0].ex">ex</td>
+                                                <td scope="" v-show="tableColumns[0].boughtDate">boughtDate</td>
                                                 <td scope="col">actions</td>
                                             </tr>
                                         </thead>
-                                        <tbody >
+                                        <tbody>
                                             <tr v-for="good in reeturnedStore.goods" :key="good.id">
-                                                <th>{{ good.id }}</th>
-                                                <td>{{ good.drag_name }}</td>
-                                                <td>{{ good.quantity }}</td>
-                                                <td>{{ good.boughtDate }}</td>
-                                                <td>{{ good.rate }}</td>
-                                                <td>{{ good.total_price }}</td>
-                                                <td>{{ good.category.category_name }}</td>
-                                                <td>{{ good.dragRate.made_date }}</td>
-                                                <td>{{ good.dragRate.expired_date }}</td>
-                                                <td>{{ good.boughtDate }}</td>
+                                                <th v-show="tableColumns[0].id">{{ good.id }}</th>
+                                                <td v-show="tableColumns[0].item">{{ good.drag_name }}</td>
+                                                <td v-show="tableColumns[0].qty">{{ good.quantity }}</td>
+                                                <td v-show="tableColumns[0].date">{{ good.boughtDate }}</td>
+                                                <td v-show="tableColumns[0].rate">{{ good.rate }}</td>
+                                                <td v-show="tableColumns[0].price">{{ good.total_price }}</td>
+                                                <td v-show="tableColumns[0].category">{{ good.category.category_name }}</td>
+                                                <td v-show="tableColumns[0].md">{{ good.dragRate.made_date }}</td>
+                                                <td v-show="tableColumns[0].ex">{{ good.dragRate.expired_date }}</td>
+                                                <td v-show="tableColumns[0].boughtDate">{{ good.boughtDate }}</td>
                                                 <td>
                                                     <a :href="'/goods/' + good.id" class="btn btn-info btn-sm mx-1">
                                                         <i class="bx bx-info-circle"></i>
@@ -106,7 +121,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <NotFound  v-else/>
+                            <NotFound v-else />
 
 
                             <!-- End Default Table Example -->
@@ -117,7 +132,6 @@
         </section>
 
     </main>
-
 </template>
 
 <script setup>
@@ -138,19 +152,33 @@ const goForPage = async (link) => {
     }
     await reeturnedStore.getGoods(link.url)
 }
-
+const tableColumns = ref([
+    {
+        'all': true,
+        'id': true,
+        'item': true,
+        'qty': true,
+        'date': true,
+        'rate': true,
+        'price': true,
+        'category': true,
+        'md': true,
+        'ex': true,
+        'boughtDate': true,
+    }
+])
 const searchGood = ref(null)
 watch(searchGood, debounce(() => {
     reeturnedStore.getGoods(null, searchGood.value)
 
 }, 300))
 const returnList = ref([])
-const slideSideBar=ref(false)
+const slideSideBar = ref(false)
 const addToReturnList = (good_id, drag_name, quantity) => {
-    if(!slideSideBar.value){
+    if (!slideSideBar.value) {
         document.querySelector('body').classList.add('toggle-sidebar')
     }
-    slideSideBar.value=true
+    slideSideBar.value = true
     let writenQty = document.getElementById(`stock_good${good_id}`).value
 
     if (writenQty !== '') {
@@ -173,15 +201,15 @@ const returnGoods = async () => {
         buttons: true,
         dangerMode: true,
     })
-        .then(async(willDelete) => {
+        .then(async (willDelete) => {
             await reeturnedStore.returnGood({ ...returnList.value })
 
             if (willDelete) {
-                if(Object.keys(reeturnedStore.errors).length){
+                if (Object.keys(reeturnedStore.errors).length) {
                     swal(`OOPS! ${reeturnedStore.errors}`, {
                         icon: "warning",
                     });
-                }else{
+                } else {
 
                     swal("Poof! Your imaginary file has been deleted!", {
                         icon: "success",
@@ -194,7 +222,7 @@ const returnGoods = async () => {
 
 const resetList = () => {
     document.querySelector('body').classList.remove('toggle-sidebar')
-    slideSideBar.value=false
+    slideSideBar.value = false
     returnList.value.splice(0, returnList.value.length)
 }
 

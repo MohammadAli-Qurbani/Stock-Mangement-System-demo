@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\Auth\AuthController;
+use App\Http\Controllers\Api\DashboardController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ExpirationController;
 use App\Http\Controllers\GoodController;
@@ -29,7 +30,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
-// Route::middleware('auth:sanctum')->group(function(){
+Route::middleware('auth:sanctum')->group(function(){
     Route::post('/logOut', [AuthController::class, 'logOut'])->name('auth.logOut');
     Route::controller(SupplierController::class)->group(function () {
         Route::get('/getSuppliers', 'getSuppliers')->name('suppliers.getSuppliers');
@@ -104,4 +105,8 @@ Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
         Route::get('/returned/yearly/report', 'yearly')->name('returned.yearly.report');
     });
 
-// });
+    Route::controller(DashboardController::class)->group(function(){
+        Route::get('/generalReportForDashboard','generalReport');
+    });
+
+});

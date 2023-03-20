@@ -135,8 +135,8 @@ const addCategory = async () => {
     if (categoryStore.errors.length === 0) {
         show.value = false
         swal("", "new category added successfuly", "success")
-        categoryStore.getCategories()
     }
+    await categoryStore.getCategories()
 }
 
 
@@ -158,12 +158,26 @@ const updateCategory = async (category) => {
         await categoryStore.getCategories()
     }
 }
-const deleteCategory=async(category)=>{
-    await categoryStore.delete(category)
-    if(categoryStore.errors.length===0){
-        swal("", "delete category done successfuly", "warning")
+const deleteCategory=(category)=>{
+    swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover the selected category !",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+    .then(async(willDelete) => {
+        if (willDelete) {
+            await categoryStore.delete(category)
+            if(categoryStore.errors.length===0){
+                swal("", "delete category done successfuly", "warning")
+            }else{
+                swal("oops!", categoryStore.errors, "warning")
+            }
+        }
         await categoryStore.getCategories()
-    }
+    });
+
 }
 
 </script>

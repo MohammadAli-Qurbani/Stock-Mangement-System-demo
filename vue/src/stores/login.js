@@ -7,7 +7,8 @@ export const useLoginStore=defineStore("loginStore",{
 
             token:sessionStorage.getItem("token"),
             user:[],
-            errors:[]
+            errors:[],
+            userData:sessionStorage.getItem("userData")
         }
 
     },
@@ -18,6 +19,7 @@ export const useLoginStore=defineStore("loginStore",{
                 this.token=response.data.token
                 this.user=response.data.user
                 sessionStorage.setItem("token",response.data.token)
+                sessionStorage.setItem("userData",JSON.stringify(response.data.user))
                 if(this.token!==null){
                     router.push({name:'home'})
                 }

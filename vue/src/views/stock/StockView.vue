@@ -181,15 +181,15 @@ const placeOrder = async () => {
         //     buttons: true,
         //     dangerMode: true,
         // })
-        //     .then((willDelete) => {
-        //         if (willDelete) {
-        //             swal("Poof! Your imaginary file has been deleted!", {
-        //                 icon: "success",
-        //             });
-        //         } else {
-        //             swal("Your imaginary file is safe!");
-        //         }
-        //     });
+        // .then((willDelete) => {
+        //     if (willDelete) {
+        //         swal("Poof! Your imaginary file has been deleted!", {
+        //             icon: "success",
+        //         });
+        //     } else {
+        //         swal("Your imaginary file is safe!");
+        //     }
+        // });
         // stockStore.getStocks()
         resetCard()
        await stockStore.getStocks()

@@ -26,8 +26,10 @@
                         id="email"
                         required
                       />
-                      <div class="invalid-feedback">Please enter your username.</div>
+
                     </div>
+                    <p class="text-danger mt-1" v-if="loginStore.errors.email">{{ loginStore.errors.email[0] }}</p>
+
                   </div>
 
                   <div class="col-12">
@@ -41,7 +43,6 @@
                     />
 
 
-                    <p class="text-danger" v-if="loginStore.errors.email">{{ loginStore.errors.email[0] }}</p>
                     <p class="text-danger" v-if="loginStore.errors.length">{{ loginStore.errors }}</p>
                   </div>
 

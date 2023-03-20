@@ -1,19 +1,17 @@
-
 <template>
-
   <main id="main" class="main">
 
     <div class="pagetitle">
       <h1>Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><router-link to="/" >public site</router-link></li>
+          <li class="breadcrumb-item"><router-link to="/" >public viwe</router-link></li>
           <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section dashboard">
+    <section class="section dashboard" v-if="generalReportData.length">
       <div class="row">
 
         <!-- Left side columns -->
@@ -34,7 +32,7 @@
                       <i class="bi bi-cart"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>145</h6>
+                      <h6>{{ generalReportData[0].totalSuppliers }}</h6>
                     </div>
                   </div>
                 </div>
@@ -54,7 +52,7 @@
                       <i class="bi bi-currency-dollar"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>64</h6>
+                        <h6>{{ generalReportData[0].totalCategories }}</h6>
 
                     </div>
                   </div>
@@ -68,14 +66,14 @@
 
               <div class="card info-card customers-card">
                 <div class="card-body">
-                  <h5 class="card-title">Customers <span>| This Year</span></h5>
+                  <h5 class="card-title">Admin(s) <span>| This Year</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-people"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>1244</h6>
+                        <h6>{{ generalReportData[0].totalAdmin }}</h6>
                     </div>
                   </div>
 
@@ -96,3 +94,21 @@
   </main><!-- End #main -->
 
 </template>
+<script setup>
+    import axiosClient from '../../axios'
+    import {ref,onMounted} from 'vue'
+    const generalReportData=ref([]);
+    const fetchGeneralReport=async()=>{
+        await axiosClient.get(`/generalReportForDashboard`)
+        .then((response)=>{
+            generalReportData.value.push(response.data)
+            console.log(generalReportData.value);
+        })
+        .catch((error)=>{
+            console.log(error)
+        })
+    }
+    onMounted(async()=>{
+        await fetchGeneralReport()
+    })
+</script>

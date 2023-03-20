@@ -159,4 +159,9 @@ router.afterEach((to, from) => {
   NProgress.done()
 
 })
+
+setTimeout(()=>{
+  NProgress.done()
+
+},4000)
 export default router
