@@ -107,11 +107,11 @@
     </section>
     <section class="bg-white my-3 ">
         <main class="container  p-2 d-flex flex-row ">
-            <div>
+            <!-- <div>
 
                 <img src="../../assets/img/me.jpg" class="aboutMeImage " alt="">
-            </div>
-            <div class="mx-5">
+            </div> -->
+            <article>
                 <h2>
                     about me
                 </h2>
@@ -120,7 +120,7 @@
                </h5>
                 <p>I love to use PHP and PHP Laravel framework for backend development</p>
                 <p>And Vue JS for FrontEnd development</p>
-            </div>
+            </article>
         </main>
         </section>
 </template>
